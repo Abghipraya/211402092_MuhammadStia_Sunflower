@@ -52,7 +52,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.garden.GardenScreen
-import com.google.samples.apps.sunflower.compose.plantlist.PlantListScreen
+import com.google.samples.apps.sunflower.compose.plantlist.HorizontalPlantListScreen
 import com.google.samples.apps.sunflower.data.Plant
 import com.google.samples.apps.sunflower.ui.SunflowerTheme
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModel
@@ -151,7 +151,7 @@ fun HomePagerScreen(
                 }
 
                 SunflowerPage.PLANT_LIST -> {
-                    PlantListScreen(
+                    HorizontalPlantListScreen(
                         onPlantClick = onPlantClick,
                         modifier = Modifier.fillMaxSize(),
                     )

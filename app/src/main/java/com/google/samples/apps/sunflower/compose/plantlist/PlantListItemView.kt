@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -33,6 +34,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.compose.utils.SunflowerImage
 import com.google.samples.apps.sunflower.data.Plant
@@ -63,7 +65,7 @@ fun ImageListItem(name: String, imageUrl: String, onClick: () -> Unit) {
                 model = imageUrl,
                 contentDescription = stringResource(R.string.a11y_plant_item_image),
                 Modifier
-                    .fillMaxWidth()
+                    .width(120.dp)
                     .height(dimensionResource(id = R.dimen.plant_item_image_height)),
                 contentScale = ContentScale.Crop
             )

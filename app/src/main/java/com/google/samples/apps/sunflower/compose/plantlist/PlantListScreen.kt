@@ -16,10 +16,10 @@
 
 package com.google.samples.apps.sunflower.compose.plantlist
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -33,29 +33,29 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.samples.apps.sunflower.viewmodels.PlantListViewModel
 import com.google.samples.apps.sunflower.R
 import com.google.samples.apps.sunflower.data.Plant
+import com.google.samples.apps.sunflower.R.dimen.header_margin as header_margin1
 
 @Composable
-fun PlantListScreen(
+fun HorizontalPlantListScreen(
     onPlantClick: (Plant) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: PlantListViewModel = hiltViewModel(),
 ) {
     val plants by viewModel.plants.observeAsState(initial = emptyList())
-    PlantListScreen(plants = plants, modifier, onPlantClick = onPlantClick)
+    HorizontalPlantListScreen(plants = plants, modifier, onPlantClick = onPlantClick)
 }
 
 @Composable
-fun PlantListScreen(
+fun HorizontalPlantListScreen(
     plants: List<Plant>,
     modifier: Modifier = Modifier,
     onPlantClick: (Plant) -> Unit = {},
 ) {
-    LazyVerticalGrid(
-        columns = GridCells.Fixed(2),
-        modifier = modifier.testTag("plant_list"),
+    LazyRow(
+        modifier = Modifier.fillMaxSize().testTag("plant_list"),
         contentPadding = PaddingValues(
             horizontal = dimensionResource(id = R.dimen.card_side_margin),
-            vertical = dimensionResource(id = R.dimen.header_margin)
+            vertical = dimensionResource(id = header_margin1)
         )
     ) {
         items(
@@ -71,10 +71,10 @@ fun PlantListScreen(
 
 @Preview
 @Composable
-private fun PlantListScreenPreview(
+private fun HorizontalPlantListScreenPreview(
     @PreviewParameter(PlantListPreviewParamProvider::class) plants: List<Plant>
 ) {
-    PlantListScreen(plants = plants)
+    HorizontalPlantListScreen(plants = plants)
 }
 
 private class PlantListPreviewParamProvider : PreviewParameterProvider<List<Plant>> {

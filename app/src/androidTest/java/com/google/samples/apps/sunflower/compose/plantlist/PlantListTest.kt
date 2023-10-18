@@ -22,6 +22,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.samples.apps.sunflower.compose.plantdetail.plantForTesting
 import com.google.samples.apps.sunflower.data.Plant
+import com.google.samples.apps.sunflower.compose.plantlist.PlantListScreen
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -42,4 +43,8 @@ class PlantListTest {
             PlantListScreen(plants = listOf(plantForTesting()), onPlantClick = onPlantClick)
         }
     }
+}
+
+class PlantListScreen(plants: List<Plant>, onPlantClick: (Plant) -> Unit) {
+
 }
